@@ -114,5 +114,5 @@ Game_Config{
     fog_prefix: "terrain/fog/fog"
     shroud_prefix: "terrain/void/void"
 
-    INCLUDE("core/team-colors.cfg")
+    INCLUDE("core/team-colors.wsl")
 }
