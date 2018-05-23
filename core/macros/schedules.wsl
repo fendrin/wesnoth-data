@@ -1,3 +1,4 @@
+export ^
 --textdomain wesnoth-help
 
 TOD_COLOR_SHIFT = (RED, GREEN, BLUE) -> {

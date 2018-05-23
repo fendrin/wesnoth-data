@@ -1,3 +1,4 @@
+export ^
 --textdomain wesnoth
 -- Utility macros for scenario-objective control.
 
