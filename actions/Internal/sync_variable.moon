@@ -1,0 +1,43 @@
+
+-- [sync_variable]
+-- (Version 1.13.0 and later only)
+-- Sets one or multiple variables to the same value as on all clients and also on replays, it uses the value from the currently active side.
+-- name the name of the variable to synchonize this can be a comma seperated list.
+
+-- function wsl_actions.sync_variable(cfg)
+--     local names = cfg.name or helper.wsl_error "[sync_variable] missing required name= attribute."
+--     local result = wesmere.synchronize_choice(
+--         function()
+--             local res = {}
+--             for name_raw in utils.split(names) do
+--                 local name = utils.trim(name_raw)
+--                 local variable_type = string.sub(name, string.len(name)) == "]" and "indexed" or ( wesmere.get_variable(name .. ".length") > 0 and "array" or "attribute")
+--                 local variable_info = { name = name, type = variable_type }
+--                 table.insert(res, { "variable", variable_info })
+--                 if variable_type == "indexed" then
+--                     table.insert(variable_info, { "value", wesmere.get_variable(name) } )
+--                 elseif variable_type == "array" then
+--                     for i = 1, wesmere.get_variable(name .. ".length") do
+--                         table.insert(variable_info, { "value",  wesmere.get_variable(string.format("%s[%d]", name, i - 1)) } )
+--                     end
+--                 else
+--                     variable_info.value = wesmere.get_variable(name)
+--                 end
+--             end
+--             return res
+--         end
+--     )
+--     for variable in helper.child_range(result, "variable") do
+--         local name = variable.name
+
+--         if variable.type == "indexed" then
+--             wesmere.set_variable(name, variable[1][2])
+--         elseif variable.type == "array" then
+--             for index, cfg_pair in ipairs(variable) do
+--                 wesmere.set_variable( string.format("%s[%d]", name, index - 1), cfg_pair[2])
+--             end
+--         else
+--             wesmere.set_variable(name, variable.value)
+--         end
+--     end
+-- end

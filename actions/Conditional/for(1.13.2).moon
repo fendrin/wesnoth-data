@@ -1,0 +1,56 @@
+
+-- wesmere.wsl_actions["for"] = function(cfg)
+--     local first, last, step
+--     if cfg.array ~= nil then
+--         first = 0
+--         last = wesmere.get_variable(cfg.array .. ".length") - 1
+--         step = 1
+--         if cfg.reverse then
+--             first, last = last, first
+--             step = -1
+--         end
+--     else
+--         first = cfg.start or 0
+--         last = cfg["end"] or first
+--         step = cfg.step
+--         if not step then
+--             if last < first then step = -1 else step = 1 end
+--         end
+--     end
+--     if step == 0 then -- Sanity check
+--         helper.wsl_error("[for] has a step of 0!")
+--     end
+--     if (first < last and step < 0) or (first > last and step > 0) then
+--         -- Sanity check: If they specify something like start,end,step=1,4,-1
+--         -- then we do nothing
+--         return
+--     end
+--     local i_var = cfg.variable or "i"
+--     local save_i = utils.start_var_scope(i_var)
+--     local sentinel = last + step
+--     wesmere.set_variable(i_var, first)
+--     local function loop_condition()
+--         if first < sentinel then
+--             return wesmere.get_variable(i_var) < sentinel
+--         else
+--             return wesmere.get_variable(i_var) > sentinel
+--         end
+--     end
+--     while loop_condition() do
+--         for do_child in helper.child_range( cfg, "do" ) do
+--             local action = utils.handle_event_commands(do_child, "loop")
+--             if action == "break" then
+--                 utils.set_exiting("none")
+--                 goto exit
+--             elseif action == "continue" then
+--                 utils.set_exiting("none")
+--                 break
+--             elseif action ~= "none" then
+--                 goto exit
+--             end
+--         end
+--         wesmere.set_variable(i_var, wesmere.get_variable(i_var) + step)
+--     end
+--     ::exit::
+--     utils.end_var_scope(i_var, save_i)
+-- end
