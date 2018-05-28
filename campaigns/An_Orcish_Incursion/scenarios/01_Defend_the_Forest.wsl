@@ -70,21 +70,21 @@ Scenario{
         --     x: 7, y: 7
         -- }
 
-        -- unit: {
-        --     side: 1
-        --     type: "Elvish Rider"
-        --     id: "Lomarfel"
-        --     name: _ "Lomarfel"
-        --     profile: "portraits/lomarfel.png"
-        --     -- x: 15, y: 18
-        --     x: 5, 8
-        --     modifications: {
-        --         <TRAIT_LOYAL!
-        --         <TRAIT_RESILIENT!
-        --     }
-        --     <IS_LOYAL!
-        --     facing: "ne"
-        -- }
+        unit: {
+            side: 1
+            type: "Elvish Rider"
+            id: "Lomarfel"
+            name: _ "Lomarfel"
+            profile: "portraits/lomarfel.png"
+            x: 15, y: 18
+            -- x: 5, 8
+            modifications: {
+                <TRAIT_LOYAL!
+                <TRAIT_RESILIENT!
+            }
+            <IS_LOYAL!
+            facing: "ne"
+        }
     }
     -- wmllint: validate-on
 
