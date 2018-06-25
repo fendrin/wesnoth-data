@@ -13,10 +13,6 @@ wsl_action
         -- channel = love.thread.getChannel'client'
 
         -- wesnoth.show_message_dialog(attributes, [options, [text_input_attributes]])
-        print("a message is to be shown")
-
-        amok!
-
         wesnoth.show_message_dialog(cfg)
 
         -- helper = wesmere.require "lua/helper.lua"
