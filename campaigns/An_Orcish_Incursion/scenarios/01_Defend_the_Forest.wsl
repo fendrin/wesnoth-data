@@ -113,7 +113,7 @@ Scenario{
         }
     }
 
-    <STARTING_VILLAGES(1, 6)
+    -- <STARTING_VILLAGES(1, 6)
 
     -- event: {
     --     name: "prestart"
