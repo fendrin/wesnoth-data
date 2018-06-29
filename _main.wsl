@@ -7,6 +7,7 @@ INCLUDE("actions/Interface")
 INCLUDE("actions/Internal")
 INCLUDE("actions/Direct")
 INCLUDE("tips.wsl")
+INCLUDE("base.wsl")
 
 -- if NO_GUI
 --     NO_TERRAIN_GFX = true
