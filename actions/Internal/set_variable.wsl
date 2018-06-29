@@ -1,7 +1,7 @@
 
 wsl_action
 
-    id: "set_variable"
+    id: "Set_Variable"
     description: [[The [set_variable] function is used to create and manipulate WSL variables. The VARIABLE function is a quick syntactic shortcut for simple variable creation and the VARIABLE_OP function is a quick syntactic shortcut for performing simple mathematical operations on variables.]]
 
     action: (cfg) ->
@@ -16,24 +16,27 @@ wsl_action
 
         -- game_data *gameinfo = resources::gamedata;
         name = cfg.name
-        to_variable = cfg.to_variable
-        local var
+        value = cfg.value
+        wesnoth.set_variable(name, value)
+        -- to_variable = cfg.to_variable
+        -- local var
 
-        try
-            do: ->
-                unless name
-                    error "trying to set a variable with an empty name:\n" -- << cfg.get_config().debug();
-                    return
+        -- try
+        --     do: ->
+        --         unless name
+        --             error "trying to set a variable with an empty name:\n" -- << cfg.get_config().debug();
+        --             return
 
 
-                -- config::attribute_value literal = cfg.get_config()["literal"]; // no $var substitution
-                -- if (!literal.blank()) {
-                --     var = literal;
-                -- }
+        --         -- config::attribute_value literal = cfg.get_config()["literal"]; // no $var substitution
+        --         -- if (!literal.blank()) {
+        --         --     var = literal;
+        --         -- }
 
-                if value = cfg.value
-                    var = value
-                else  var = wesmere.get_variable(name)
+        --         if value = cfg.value
+        --             var = value
+        --         else  var = wesnoth.get_variable(name)
+        -- var = wesnoth.get_variable(name)
 
 
                 -- config::attribute_value value = cfg["value"];
@@ -47,26 +50,26 @@ wsl_action
                 --if to_variable = cfg.to_variable
                 --    var =
 
-                if add = cfg["add"]
-                    var += add
+                -- if add = cfg["add"]
+                --     var += add
 
-                if sub = cfg["sub"]
-                    var -= sub
+                -- if sub = cfg["sub"]
+                --     var -= sub
 
-                if multiply = cfg["multiply"]
-                    var *= multiply
+                -- if multiply = cfg["multiply"]
+                --     var *= multiply
 
-                if divide = cfg["divide"]
-                    if divide == 0
-                        error "division by zero on variable " .. name
-                        return
-                    var /= divide
+                -- if divide = cfg["divide"]
+                --     if divide == 0
+                --         error "division by zero on variable " .. name
+                --         return
+                --     var /= divide
 
-                if modulo = cfg["modulo"]
-                    if modulo == 0
-                        error "division by zero on variable " .. name
-                        return
-                    var %= modulo
+                -- if modulo = cfg["modulo"]
+                --     if modulo == 0
+                --         error "division by zero on variable " .. name
+                --         return
+                --     var %= modulo
 
 
 --         config::attribute_value round_val = cfg["round"];
@@ -241,11 +244,11 @@ wsl_action
 --             var = joined_string;
 --         }
 --     }
-            catch: (err) ->
-                error "Found invalid variablename in \n[set_variable] " .. err -- .. cfg.get_config().debug() << "[/set_variable]\n where name = " << name << " to_variable = " << to_variable << "\n";
+            -- catch: (err) ->
+            --     error "Found invalid variablename in \n[set_variable] " .. err -- .. cfg.get_config().debug() << "[/set_variable]\n where name = " << name << " to_variable = " << to_variable << "\n";
 
-            finally: ->
-                wesmere.set_variable(name, var)
+            -- finally: ->
+        -- wesnoth.set_variable(name, var)
 
 
 
