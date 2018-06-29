@@ -1,0 +1,65 @@
+Scenario{
+
+    id: "_base"
+
+    event: {
+        name: "prestart"
+        do: ->
+            Set_Variable{
+                name: "side_number"
+                value: 0
+            }
+            assert(side_number == 0, "Side number is not 0")
+            Set_Variable{
+                name: "turn_number"
+                value: 0
+            }
+    }
+
+    event: {
+        name: "pre new turn"
+
+        do: ->
+            Set_Variable{
+                name: "turn_number"
+                value: turn_number + 1
+            }
+            Fire_Event{
+                name: "new turn"
+            }
+    }
+
+    event: {
+        name: "new turn"
+        do: ->
+            -- turn_number = 5
+            Message{
+                speaker: _ "New Turn #{turn_number}"
+                message: _ "It is now <i>Morning</i>."
+            }
+            Fire_Event{
+                name: "pre side turn"
+            }
+    }
+
+    event: {
+        name: "pre side turn"
+        do: ->
+            Set_Variable{
+                name: "side_number"
+                value: side_number + 1
+            }
+            Fire_Event{
+                name: "side turn"
+            }
+    }
+
+    event: {
+        name: "side turn"
+        do: ->
+            Message{
+                speaker: "Side #{side_number} - Turn #{turn_number}"
+                message: _ "It is your side's turn!"
+            }
+    }
+}
