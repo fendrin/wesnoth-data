@@ -93,10 +93,12 @@ INCLUDE("campaigns/")
 -- -- terrains work properly.
 --     INCLUDE("core/terrain-graphics.cfg")
 
-
--- Binary_Path{
---     path: "data/core"
--- }
+Binary_Path{
+    path: "data/core"
+}
+Binary_Path{
+    path: ""
+}
 
 -- INCLUDE("advanced_preferences.cfg")
 
