@@ -20,6 +20,9 @@ Scenario{
 
     story: {
         part: {
+            story: _ "Press the <i>left mouse</i> button or the <i>space</i> key to advance to the next unread message.\nThe <i>right mouse</i> button or <i>return</i> key always dismisses the message dialog.\nUse the <i>left/right arrow</i> keys or the <i>forward/back mouse</i> buttons to navigate the list of already seen messages."
+        }
+        part: {
             music: "elvish-theme.ogg"
             -- <AOI_BIGMAP!
             background: "story.jpg"
@@ -42,6 +45,9 @@ Scenario{
             --po: "northern marches" is *not* a typo for "northern marshes" here.
             --po: In archaic English, "march" means "border country".
             story: _ "The orcs were first sighted from the north marches of the great forest of Wesmere."
+        }
+        part: {
+            story: _ "Dismiss this last message with a <i>right mouse</i> click or by pressing <i>return</i>."
         }
     }
 
