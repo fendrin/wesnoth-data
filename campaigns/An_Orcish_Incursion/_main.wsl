@@ -3,6 +3,8 @@ Textdomain{
     name: "wesnoth-aoi"
 }
 
+-- p(CAMPAIGN_DIFFICULTY("EASY", "units/elves-wood/fighter.png~RC(magenta>red)", _("Fighter"), _("Beginner")))
+
 -- wmlscope: set export=no
 Campaign{
     id: "An_Orcish_Incursion"
@@ -19,9 +21,10 @@ Campaign{
 
 " .. _ "(Novice level, 7 scenarios.)"
 
-    <CAMPAIGN_DIFFICULTY("EASY", "units/elves-wood/fighter.png~RC(magenta>red)", _ "Fighter", _ "Beginner")
-    <CAMPAIGN_DIFFICULTY("NORMAL", "units/elves-wood/lord.png~RC(magenta>red)", _ "Lord", _ "Normal"), <DEFAULT_DIFFICULTY!
-    <CAMPAIGN_DIFFICULTY("HARD", "units/elves-wood/high-lord.png~RC(magenta>red)", _ "High Lord", _ "Challenging")
+    <CAMPAIGN_DIFFICULTY("EASY", "units/elves-wood/fighter.png~RC(magenta>red)", _("Fighter"), _("Beginner"))
+    <CAMPAIGN_DIFFICULTY("NORMAL", "units/elves-wood/lord.png~RC(magenta>red)", _("Lord"), _("Normal"), true)
+    --, <DEFAULT_DIFFICULTY!
+    <CAMPAIGN_DIFFICULTY("HARD", "units/elves-wood/high-lord.png~RC(magenta>red)", _("High Lord"), _("Challenging"))
 
 -- Geographical and historical assumptions (ESR):
 --
