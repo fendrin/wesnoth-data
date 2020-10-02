@@ -73,7 +73,7 @@ CAMPAIGN_DIFFICULTY = (DEFINE, IMAGE, LABEL, DESCRIPTION, DEFAULT=false) -> {
         define: DEFINE
         image: IMAGE
         label: LABEL
-        description: DESCRIPTION
+        description: '(' .. DESCRIPTION .. ')'
         default: DEFAULT
     }
 }
