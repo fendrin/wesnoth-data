@@ -1,29 +1,32 @@
 
 wsl_action
-    id: "objectives"
+    id: 'Objectives'
 
     description: [[The other tag used for plot development is [objectives]. The [objectives] tag overwrites any previously set objectives, and displays text which should describe the objectives of the scenario. Scenario objectives are displayed on the player's first turn after the tag is used, or as part of the event if it triggers during that player's turn. Objectives can also be accessed at any time in a scenario using the "Scenario Objectives" game menu option, making this tag useful for scenario-specific information that the player may need to refer to during play.]]
 
-    action: (cfg, wesmere) ->
-        sides = wesmere.get_sides(cfg)
-        silent = cfg.silent
+    action: (cfg) ->
 
-        remove_ssf_info_from(cfg)
-        cfg.silent = nil
+        wesnoth.set_sides_objectives(cfg)
 
-        objectives = generate_objectives(cfg)
+        -- sides = wesmere.get_sides(cfg)
+        -- silent = cfg.silent
 
-        set_objectives = (sides, save) ->
-            for side in *sides
-                if save then scenario_objectives[side.side] = cfg
-                side.objectives = objectives
-                side.objectives_changed = not silent
+        -- remove_ssf_info_from(cfg)
+        -- cfg.silent = nil
 
-        if #sides == #wesmere.sides or #sides == 0
-            scenario_objectives[0] = cfg
-            set_objectives(wesmere.sides)
-        else
-            set_objectives(sides, true)
+        -- objectives = generate_objectives(cfg)
+
+        -- set_objectives = (sides, save) ->
+        --     for side in *sides
+        --         if save then scenario_objectives[side.side] = cfg
+        --         side.objectives = objectives
+        --         side.objectives_changed = not silent
+
+        -- if #sides == #wesmere.sides or #sides == 0
+        --     scenario_objectives[0] = cfg
+        --     set_objectives(wesmere.sides)
+        -- else
+        --     set_objectives(sides, true)
 
 --------------------------------------------------------------
 
