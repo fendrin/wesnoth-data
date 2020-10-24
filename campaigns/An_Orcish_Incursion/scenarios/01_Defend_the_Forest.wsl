@@ -121,20 +121,20 @@ Scenario{
 
     -- <STARTING_VILLAGES(1, 6)
 
-    -- event: {
-    --     name: "prestart"
-    --     do: ->
+    event: {
+        name: "prestart"
+        do: ->
     --         -- SCATTER_IMAGE({terrain: "Re"}, 1, "scenery/rubble.png")
 
-    --         Objectives{
-    --             objective: {
-    --                 description: _ "Defeat Urugha"
-    --                 condition: "win"
-    --             }
-    --             objective: {
-    --                 description: _ "Death of Erlornas"
-    --                 condition: "lose"
-    --             }
+            Objectives{
+                objective: {
+                    description: _ "Defeat Urugha"
+                    condition: "win"
+                }
+                objective: {
+                    description: _ "Death of Erlornas"
+                    condition: "lose"
+                }
 
     --             -- <TURNS_RUN_OUT!
 
@@ -146,8 +146,8 @@ Scenario{
     --             -- <if EASY then {
     --             --     <HINT(_ "Elves can move quickly and safely among the trees. Pick off the enemy grunts with your archers from the safety of the forest.")
     --             -- }
-    --         }
-    -- }
+            }
+    }
 
     event: {
         name: "start"
